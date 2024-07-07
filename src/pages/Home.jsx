@@ -1,10 +1,7 @@
-import { FaGithub, FaTwitter } from "react-icons/fa";
-import { TiSocialLinkedin, TiSocialInstagram } from "react-icons/ti";
+import { useEffect, useRef, useState } from "react";
 import HeroImg from "../assets/dev.jpg";
 import { cards } from "../utils/Data";
 import { v4 as uuid } from "uuid";
-import { useEffect, useRef } from "react";
-import { register } from "swiper/element/bundle";
 import "./home.css";
 import Card from "../components/card/Card";
 import Portfolio1 from "../assets/project-slider-img-1.webp";
@@ -15,25 +12,27 @@ import Portfolio5 from "../assets/project-slider-img-2.webp";
 import Portfolio6 from "../assets/project-slider-img-1.webp";
 import Contact from "../components/contact/Contact";
 import Timeline from "../components/timeline/Timeline";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
   const skillRef = useRef(null);
-  const swiperRef = useRef(null);
+  const words = ["Everything", "Love", "Solving", "Knowledge"];
+  const [currentWord, setCurrentWord] = useState(words[0]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            animateProgressbar();
-            observer.disconnect();
-          }
-        });
+        if (entries[0].isIntersecting) {
+          animateProgressbar();
+          observer.disconnect();
+        }
       },
       { threshold: 0.5 }
     );
 
-    observer.observe(skillRef.current);
+    if (skillRef.current) {
+      observer.observe(skillRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -41,27 +40,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    register();
+    let wordIndex = 0;
+    const intervalId = setInterval(() => {
+      wordIndex = (wordIndex + 1) % words.length;
+      setCurrentWord(words[wordIndex]);
+    }, 8000);
 
-    if (swiperRef.current) {
-      const params = {
-        breakpoints: {
-          280: {
-            slidesPerView: 1,
-          },
-          600: {
-            slidesPerView: 2,
-          },
-          991: {
-            slidesPerView: 3,
-          },
-        },
-      };
-
-      Object.assign(swiperRef.current, params);
-      swiperRef.current.initialize();
-    }
-  }, []);
+    return () => clearInterval(intervalId);
+  }, [words]);
 
   const animateProgressbar = () => {
     const progressBars = document.querySelectorAll(".skill__progress-line");
@@ -102,28 +88,6 @@ const Home = () => {
     },
   ];
 
-  const text = document.querySelector(".sec-text");
-
-  const textLoad = () => {
-    setTimeout(() => {
-      text.textContent = "Everything";
-    }, 0);
-    setTimeout(() => {
-      text.textContent = "Love";
-    }, 4e3);
-    setTimeout(() => {
-      text.textContent = "Addiction";
-    }, 8e3);
-    setTimeout(() => {
-      text.textContent = "Solving";
-    }, 12e3);
-    setTimeout(() => {
-      text.textContent = "Knowledge";
-    }, 16e3);
-  };
-
-  textLoad();
-  setInterval(textLoad, 20e3);
 
   return (
     <div className="container home">
@@ -135,9 +99,9 @@ const Home = () => {
           </div>
           <div className="hero-section__paragraph">
             <h3>a fullstack developer and adventure enthusiast</h3>
-            <div class="container">
-              <span class="first-text">Coding is</span>&nbsp;&nbsp;
-              <span class="sec-text">Everything</span>
+            <div className="container">
+              <span className="first-text">Coding is</span>&nbsp;&nbsp;
+              <span className="sec-text">{currentWord}</span>
             </div>
             <br />
           </div>
@@ -207,7 +171,7 @@ const Home = () => {
       </section>
 
       <section className="portfolio" id="portfolio">
-        <h3 className="section__label">My Portfolio</h3>
+        <h3 className="section__label">My Projects</h3>
         <h2 className="section__title">My Complete Projects</h2>
 
         <div className="portfolio__grid">
@@ -243,22 +207,9 @@ const Home = () => {
         <h2 className="section__title">Connect with me</h2>
 
         <Contact />
-        <div className="social-links">
-          <a href="https://github.com/AviAcharya1">
-            <FaGithub />
-          </a>
-          <a href="https://twitter.com/_mr_peacer_">
-            <FaTwitter />
-          </a>
-          <a href="https://www.linkedin.com/in/avinash-s-181672200">
-            <TiSocialLinkedin />
-          </a>
-          <a href="https://www.instagram.com/_mr.peacer_/">
-            <TiSocialInstagram />
-          </a>
-        </div>
+        <Footer/>
       </div>
-    </div>
+     </div>
   );
 };
 

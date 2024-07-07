@@ -1,3 +1,6 @@
+html {
+	scroll-behavior: smooth;
+  }
 .home {
 	padding-top: 120px;
 }
@@ -58,40 +61,54 @@
 
 
 .container {
-    margin: 1.2rem;
-    /* width: 346px; */
-    /* overflow: hidden; */
+	margin: 1.2rem;
+	display: inline-block;
   }
-  .container .sec-text{
-    /* position: relative; */
-    color: #deee05;
-    font-size: 30px;
-    font-weight: 600;
+  
+  .container .first-text {
+	color: #fff;
   }
-  .container .text.first-text {
-    color: #fff;
+  
+  .container .sec-text {
+	position: relative;
+	color: #deee05;
+	font-size: 30px;
+	font-weight: 600;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+	animation: typing 4s steps(12) infinite;
+	width: 0;
   }
-  .text .sec-text:before {
-    content: "";
-    /* position: absolute; */
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #080812;
-    border-left: 2px solid #eff308;
-    animation: animate 4s steps(12) infinite;
+  
+  @keyframes blink {
+	  0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
+}
+@keyframes typing {
+	from { width: 0 }
+	to { width: 100% }
+  }
+  
+  @keyframes deleting {
+	0%, 90%, 100% {
+	  width: 100%;
+	}
+	30%, 60% {
+	  width: 0;
+	}
   }
 
-  @keyframes animate {
-    40%,
-    60% {
-      left: calc(100% + 4px);
-    }
-    100% {
-      left:0%;
-    }
-  }
+
+.container .sec-text::after {
+  content: "|";
+  position: absolute;
+  right: -8px;
+  color: #deee05;
+  background-color: #080812;
+  animation: blink 0.7s infinite;
+}
+
 
   
 .social-links {

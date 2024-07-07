@@ -10,7 +10,7 @@ const Card = ({ icon, title, features }) => {
 				<div className='card__icon'>{React.createElement(icon)}</div>
 				<div className='card__title'>{title}</div>
 				<div className='card__features'>
-					{features?.map((feature) => (
+					{features.map((feature) => (
 						<p key={uuid()}>{feature}</p>
 					))}
 				</div>
@@ -20,9 +20,9 @@ const Card = ({ icon, title, features }) => {
 };
 
 Card.propTypes = {
-	icon: PropTypes.element,
+	icon: PropTypes.element.isRequired,
 	title: PropTypes.string.isRequired,
-	features: PropTypes.arrayOf(PropTypes.string),
+	features: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Card;

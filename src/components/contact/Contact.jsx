@@ -3,7 +3,7 @@ import './contact.css';
 const Contact = () => {
 	return (
 		<div className='contact-form'>
-			<form action=''>
+			<form action='' className='formContainer'>
 				<div className='form-group'>
 					<input type='text' name='text' placeholder='Username' id='' />
 				</div>

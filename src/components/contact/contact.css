@@ -1,6 +1,8 @@
 .contact-form {
 	width: 100%;
 	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 form {
@@ -9,7 +11,15 @@ form {
 	background-color: var(--nav-bg);
 }
 
+.formContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .form-group {
+	/* border: 1px solid red; */
 	width: 100%;
 	margin-bottom: 10px;
 	display: flex;
@@ -17,6 +27,9 @@ form {
 
 input,
 textarea {
+	border: 1px solid;
+	outline: none;
+	border-radius: 5px;
 	width: 100%;
 	padding: 10px;
 }

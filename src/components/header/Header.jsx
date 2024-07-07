@@ -29,7 +29,7 @@ const Header = () => {
 						<a href='#skills'>Skills</a>
 					</li>
 					<li className='nav__menu-items'>
-						<a href='#portfolio'>Portfolio</a>
+						<a href='#portfolio'>Projects</a>
 					</li>
 					<li className='nav__menu-items'>
 						<a href='#contact'>Contact</a>
