@@ -11,6 +11,8 @@ import Portfolio1 from "../assets/project-slider-img-1.webp";
 import Portfolio2 from "../assets/project-slider-img-2.webp";
 import Portfolio3 from "../assets/project-slider-img-3.webp";
 import Portfolio4 from "../assets/project-slider-img-4.webp";
+import Portfolio5 from "../assets/project-slider-img-2.webp";
+import Portfolio6 from "../assets/project-slider-img-1.webp";
 import Contact from "../components/contact/Contact";
 import Timeline from "../components/timeline/Timeline";
 
@@ -224,6 +226,14 @@ const Home = () => {
           <div className="portfolio__card">
             <img src={Portfolio4} alt="portfolio 4" />
             <div className="portfolio__card-title">Portfolio 4</div>
+          </div>
+          <div className="portfolio__card">
+            <img src={Portfolio5} alt="portfolio 5" />
+            <div className="portfolio__card-title">Portfolio 5</div>
+          </div>
+          <div className="portfolio__card">
+            <img src={Portfolio6} alt="portfolio 6" />
+            <div className="portfolio__card-title">Portfolio 6</div>
           </div>
         </div>
       </section>
