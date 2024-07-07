@@ -8,7 +8,7 @@ const Timeline = ({ education }) => {
         if (hoveredItem !== null) {
             const timer = setTimeout(() => {
                 setHoveredItem(null);
-            }, 10000);
+            }, 15000);
             return () => clearTimeout(timer);
         }
     }, [hoveredItem]);

@@ -27,6 +27,7 @@
 
 .hero-section__image {
 	position: relative;
+	margin-left: 5rem;
 	height: auto;
 	top: auto;
 	left: auto;
@@ -35,6 +36,8 @@
 }
 
 .hero-section__image img {
+	mix-blend-mode: darken;
+	filter: blur(0);
 	max-width: 100%;
 	height: 600px;
 }
@@ -114,24 +117,6 @@
     zoom: 1.2;
 }
 
-/* .social-links a:nth-child(1) {
-	left: 470px;
-	top: 90px;
-}
-
-.social-links a:nth-child(2) {
-	left: 585px;
-	top: 188px;
-}
-.social-links a:nth-child(3) {
-	left: 640px;
-	top: 325px;
-}
-.social-links a:nth-child(4) {
-	left: 620px;
-	top: 480px;
-} */
-
 .video-link {
 	display: flex;
 	padding-top: 50px;
@@ -201,13 +186,13 @@
 	margin-bottom: 25px;
 	border: 1px solid var(--text-color);
     border-radius: 5px;
-    box-shadow: 0 0 7px white;
+    box-shadow: 0 0 7px rgb(255, 255, 255);
 }
 
 .skill__box {
 	width: 100%;
 	height: 5px;
-	background-color: rgb(16, 78, 110);
+	background-color: rgb(95, 190, 237);
 	position: relative;
 }
 
@@ -216,7 +201,7 @@
 	top: 0;
 	left: 0;
 	height: 100%;
-	background-color: var(--special-text);
+	background-color: var(--text-color);
 	width: 0;
 	transition: all 1s linear;
 }

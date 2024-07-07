@@ -14,7 +14,7 @@
     align-items: center;
     position: relative;
     border-radius: 100%;
-    box-shadow: 0 0 5px white;
+    box-shadow: 0 0 10px ; 
     transition: 1.3s ease-in-out;
 }
 
@@ -37,7 +37,7 @@
     padding: 10px;
     height:200px;
     width: 300px;
-    border: 1px solid #ddd;
+    border: 1px solid ;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: opacity 1.3s ease-in-out;
     opacity: 0;

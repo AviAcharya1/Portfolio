@@ -20,6 +20,9 @@ const Header = () => {
 						<a href='#home'>Home</a>
 					</li>
 					<li className='nav__menu-items'>
+						<a href='#education'>Education</a>
+					</li>
+					<li className='nav__menu-items'>
 						<a href='#services'>Services</a>
 					</li>
 					<li className='nav__menu-items'>
